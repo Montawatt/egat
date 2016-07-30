@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Thai CV 2015</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../logo/tcvrs.ico" type="image/x-icon" />
+    <!--<link rel="icon" type="image/png" href="logo/tcvrs32.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" href="logo/tcvrs16.ico" sizes="16x16" />-->
+    <link href="../styles/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="../styles/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+	<script src="../scripts/jquery.min.js"></script>
+    <script src="../scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../scripts/formular.js"></script>
+</head>
+<body>
+<div data-role="page" id="regat1">
+    <div data-role="header">
+        <h3>Thai CV risk score</h3>      
+        <a href="#regat3" data-icon="info" data-inline="true" data-mini="true" data-iconpos="notext" data-transition="pop" ></a>
+	</div>
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider" data-theme="b">ข้อมูลที่จำเป็น (ต้องกรอกทุกข้อ)</li>
+            <li data-role="fieldcontain">
+                <label for="age">อายุ</label>
+                <input type="range" name="age" id="age" value="45" min="35" max="70" title="ปี (years)" />
+            </li>
+            <li data-role="fieldcontain">
+                <label for="sex">เพศ</label>
+                <select name="sex" id="sex" data-role="slider" data-mini="true">
+	                <option value="0" selected="selected">หญิง</option>
+	                <option value="1">ชาย</option>
+                </select>
+            </li>
+            <li data-role="fieldcontain">
+                <label for="smoke">สูบบุหรี่อยู่</label>
+                <select name="smoke" id="smoke" data-role="slider" data-mini="true">
+	                <option value="0" selected="selected">ไม่</option>
+	                <option value="1">ใช่</option>
+                </select>
+            </li>
+            <li data-role="fieldcontain">
+                <label for="dm">เป็นโรคเบาหวาน</label>
+                <select name="dm" id="dm" data-role="slider" data-mini="true">
+	                <option value="0" selected="selected">ไม่</option>
+	                <option value="1">ใช่</option>
+                </select>
+            </li>
+            <li data-role="fieldcontain">
+                <label for="sbp">ความดันโลหิตตัวบน</label>
+                <input type="range" name="sbp" id="sbp" value="120" min="80" max="200" title="mmHg" />
+            </li> 
+            <li data-role="list-divider" data-theme="b">ข้อมูลเพิ่มเติม (กรอกเท่าที่ทำได้)</li>
+            <li data-role="fieldcontain">
+                <label for="tc">โคเรสเตอรอลรวม (Cholesterol)</label>
+                <input type="range" name="tc" id="tc" value="0" min="0" max="280" title="mg/dL" />
+            </li>
+            <li data-role="fieldcontain">
+                <label for="ldl">โคเรสเตอรอลเลว (LDL)</label>
+                <input type="range" name="ldl" id="ldl" value="0" min="0" max="220" title="mg/dL" />
+            </li> 
+            <li data-role="fieldcontain">
+                <label for="hdl">โคเรสเตอรอลดี (HDL)</label>
+                <input type="range" name="hdl" id="hdl" value="0" min="0" max="90" title="mg/dL" />
+            </li> 
+            <li data-role="fieldcontain">
+                <label for="wc">วัดรอบเอว</label>
+                <input type="range" name="wc" id="wc" value="0" min="20" max="60" title="นิ้ว (inch)" />
+            </li>
+            <li data-role="fieldcontain">
+                <label for="bdh">ส่วนสูง</label>
+                <input type="range" name="bdh" id="bdh" value="0" min="130" max="210" title="ซม (cm)" />
+            </li>
+            <li data-role="list-divider" data-theme="a">หากผลเลือดของท่านมีค่ามากกว่าที่กำหนดให้เลือกค่าสูงสุด</li>
+        </ul>
+    </div>
+    <div data-role="footer">	
+        <div class="ui-grid-b">
+            <div class="ui-block-a"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c"><a href="#" data-role="button" data-icon="arrow-r" data-mini="true" onclick="ThaiASCVD()">แสดงผล</a></div>
+        </div>
+	</div>
+</div>
+    <div data-role="page" id="regat2">
+        <div data-role="header">
+            <h3>Thai CV risk score</h3>      
+            <a href="#regat3" data-icon="info" data-inline="true" data-mini="true" data-transition="pop" data-iconpos="notext"></a>
+	    </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider"><h1>ผลการประเมิน</h1></li>
+                <li>
+                    <h1 style="white-space: normal; height: 20%;">ความเสี่ยงต่อการเกิดโรคเส้นเลือดหัวใจและหลอดเลือดในระยะเวลา 10 ปีของท่านเท่ากับ &nbsp;<strong id="sc2">0</strong>% &nbsp; <strong id="sc5"></strong></h1>
+                    <h1 style="white-space: normal; height: 20%;"><strong id="sc1"></strong>ของคนไทยเพศเดียวกัน อายุเท่ากัน และปราศจากปัจจัยเสี่ยง &nbsp;  </h1>
+                    <p>&nbsp;</p>
+                    <h1 style="white-space: normal; height: 20%;"><strong>ข้อแนะนำเบื้องต้น</strong></h1>
+                    <h1 id="sc4" style="white-space: normal; height: 20%;">ไม่มี</h1>
+                    <p></p>
+                </li>
+                <li data-role="list-divider"><strong>หมายเหตุ (Disclaimer)</strong></li>
+                <li>
+                    <p style="white-space: normal">ผลลัพธ์ที่ได้ เป็นการประเมินความเสี่ยงต่อการเจ็บป่วยหรือเสียชีวิตจากโรคเส้นเลือดหัวใจตีบตันและโรคเส้นเลือดสมองตีบตันในระยะเวลา 10 ปีข้างหน้า</p>
+                    <p style="white-space: normal">ผลการประเมินและคำแนะนำที่ได้รับจากโปรแกรมนี้ไม่สามารถใช้แทนการตัดสินใจของแพทย์ได้ การตรวจรักษาเพิ่มเติมหรือการให้ยารักษาขึ้นอยู่กับดุลยพินิจของแพทย์และการปรึกษากันระหว่างแพทย์และตัวท่าน</p>
+                    <p style="white-space: normal">ผลการประเมินนี้ห้ามนำไปใช้อ้างอิงในการค้า เช่น การทำประกันชีวิต และไม่สามารถใช้กับผู้ป่วยโรคลิ้นหัวใจได้</p>
+                </li>
+            </ul>
+        </div>
+        <div data-role="footer">
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><a href="#regat1" data-role="button" data-icon="arrow-l" data-mini="true">ย้อนกลับ</a></div>
+                <div class="ui-block-b"></div>
+                <div class="ui-block-c"></div>
+            </div>
+        </div>
+    </div>
+<div data-role="page" id="regat3">
+    <div data-role="header">
+        <h3>Thai CV 2015</h3>      
+        <a href="#regat1" data-icon="grid" data-inline="true" data-mini="true" data-transition="pop" data-iconpos="notext"></a>
+	</div>
+    <div data-role="content">
+        <table>
+            <tr>
+                <td><img src="../logo/tcvrs100.png"></td>
+                <td>
+                    <h5>โปรแกรมนี้ทำขึ้นเพื่อใช้ประเมินความเสี่ยงต่อการเกิดโรคหัวใจและหลอดเลือด โดยแสดงผลการประเมินเป็นความเสี่ยงต่อการเสียชีวิตหรือเจ็บป่วยจากโรคเส้นเลือดหัวใจตีบตันและโรคเส้นเลือดสมองตีบตันในระยะเวลา 10 สิบปีข้างหน้า ซึ่งสามารถใช้ได้ทั้งในกรณีที่ท่านไม่มีผลเลือดโดยให้ใช้ขนาดรอบเอวหรือขนาดรอบเอวหารด้วยส่วนสูงแทน และในกรณีที่มีผลการตรวจระดับไขมันในเลือด แบบประเมินนี้สร้างขึ้นจากการติดตามศึกษาหาปัจจัยเสี่ยงต่อการเกิดโรคหัวใจและหลอดเลือดในประชากรไทยภายใต้โครงการศึกษาพนักงานการไฟฟ้าฝ่ายผลิตแห่งประเทศไทยเป็นระยะเวลายาวนานกว่า 20 ปี แบบประเมินความเสี่ยงนี้จึงควรใช้เฉพาะในคนไทยที่มีอายุ  35-70 ปี ยังไม่มีโรคหัวใจและหลอดเลือด หากท่านมีข้อสงสัยหรือไม่แน่ใจแนะนำให้เข้ารับการประเมินโดยแพทย์ผู้เชี่ยวชาญ</h5>
+                </td>
+            </tr>
+        </table>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider"><strong>คณะผู้วิจัยและจัดทำแบบประเมินความเสี่ยงนี้ประกอบด้วย</strong></li>
+            <li>
+                <a href="http://med.mahidol.ac.th/">
+                <img src="../logo/rama.jpg">
+                <h2>คณะแพทยศาสตร์ โรงพยาบาลรามาธิบดีมหาวิทยาลัยมหิดล</h2>
+                <p>ศ.นพ. ปิยะมิตร ศรีธรา</p>
+                <p>ศ.นพ. ปิยทัศน์ ทัศนาวิวัฒน์</p>
+                <p>ผศ.นพ. สุพจน์ ตุลยาเดชานนท์</p>
+                <p>ผศ.นพ. สมเกียรติ แสงวัฒนาโรจน์</p>
+                <p>นพ.สุกิจ แย้มวงษ์</p>
+                <p>นพ. ปริญญ์ วาทีสาธกกิจ</p>
+                </a>
+            </li>
+            <li><a href="http://www.mua.go.th/">
+                <img src="../logo/che_th.png">
+                <h2>สำนักงานคณะกรรมการอุดมศึกษา</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.trf.or.th/">
+                <img src="../logo/trf.jpg">
+                <h2>สำนักงานกองทุนสนับสนุนการวิจัย</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.hsri.or.th/">
+                <img src="../logo/hsri_logo_thai.jpg">
+                <h2>สถาบันวิจัยระบบสาธารณสุข</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.egat.co.th/">
+                <img src="../logo/egat.jpg">
+                <h2>สำนักงานแพทย์และอนามัยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย</h2>
+                <p>ภก. ธวัชชัย อัครวิเชียร</p></a>
+            </li> 
+            <li><a href="http://www.thaiheart.org/">
+                <img src="../logo/heart_thai.jpg">
+                <h2>สมาคมแพทย์โรคหัวใจแห่งประเทศไทย ในพระบรมราชูปถัมภ์</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.nrct.go.th/">
+                <img src="../logo/nrct_small.png">
+                <h2>สำนักงานคณะกรรมการวิจัยแห่งชาติ</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.thaihealth.or.th/">
+                <img src="../logo/hpsd.png">
+                <h2>สำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ</h2>
+                <p></p></a>
+            </li>             
+        </ul>
+    </div>
+    <div data-role="footer">
+    </div>
+</div>
+</body>
+</html>
