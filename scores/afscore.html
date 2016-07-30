@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Thai AF risk score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../logo/af.ico" type="image/x-icon" />
+    <link href="../styles/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="../styles/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+	<script src="../scripts/jquery.min.js"></script>
+    <script src="../scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../scripts/afscore.js"></script>
+</head>
+<body>
+<div data-role="page" id="afs2">
+    <div data-role="header">
+        <a href="#afs0" data-icon="info" data-inline="true" data-mini="true" data-iconpos="notext" data-transition="pop" ></a>
+        <h3>ปัจจัยเสี่ยง</h3>   
+        <a href="../index.html" data-icon="home" data-inline="true" data-mini="true" data-iconpos="notext" data-transition="slide">H</a>
+	</div>
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider" data-theme="b">ข้อมูลที่สามารถกรอกเองได้</li>
+            <li data-role="fieldcontain">
+                <label for="age">อายุ</label>
+                <input type="range" name="age" id="age" value="60" min="45" max="90" title="ปี (years)" data-highlight="true" />
+            </li>
+            <li data-role="fieldcontain">
+                <label for="sex">เพศ</label>
+                <select name="sex" id="sex" data-role="slider" data-mini="true">
+	                <option value="0" selected="selected">หญิง</option>
+	                <option value="1">ชาย</option>
+                </select>
+            </li>
+            <li data-role="fieldcontain">
+                <label for="sbp">ความดันโลหิตตัวบน</label>
+                <input type="range" name="sbp" id="sbp" value="120" min="90" max="200" title="mmHg" data-highlight="true" />
+            </li>
+            <li data-role="fieldcontain">
+                <label for="htd">เป็นโรคความดันสูง</label>
+                <select name="htd" id="htd" data-role="slider" data-mini="true">
+	                <option value="0" selected="selected">ไม่</option>
+	                <option value="1">ใช่</option>
+                </select>
+            </li>
+            <li data-role="fieldcontain">
+                <label for="bww">น้ำหนัก</label>
+                <input type="range" name="bww" id="bww" value="60" min="36" max="136" title="กก (kg)" data-highlight="true" />
+            </li>
+            <li data-role="fieldcontain">
+                <label for="bdh">ส่วนสูง</label>
+                <input type="range" name="bdh" id="bdh" value="160" min="120" max="210" title="ซม (cm)" data-highlight="true" />
+            </li>
+            <li data-role="list-divider" data-theme="b">สอบถามแพทย์เพื่อกรอก</li>
+            <li data-role="fieldcontain">
+                <label for="sigm">พบโรคลิ้นหัวใจหรือพนังหัวใจรั่ว (significant murmur)</label>
+                <select name="sigm" id="sigm" data-role="slider" data-mini="true">
+	                <option value="0" selected="selected">ไม่</option>
+	                <option value="1">ใช่</option>
+                </select>
+            </li>
+            <li data-role="fieldcontain">
+                <label for="hfd">เป็นโรคหัวใจวาย</label>
+                <select name="hfd" id="hfd" data-role="slider" data-mini="true">
+	                <option value="0" selected="selected">ไม่</option>
+	                <option value="1">ใช่</option>
+                </select>
+            </li>
+            <li data-role="fieldcontain">
+                <label for="pri">PR interval</label>
+                <input type="range" name="pri" id="pri" value="120" min="100" max="220" title="msec" data-highlight="true" />
+            </li>
+        </ul>
+    </div>
+    <div data-role="footer" class="ui-bar">
+        <div class="ui-grid-a">
+	        <div class="ui-block-a"></div>
+	        <div class="ui-block-b"><a href="#fmhafr" data-rel="popup" data-theme="b" data-role="button" data-icon="heart" data-transition="pop" onclick="ThaiEPclub(1)">แสดงผล</a></div>
+            <div data-role="popup" id="fmhafr" data-overlay-theme="a" data-theme="b" style="max-width:400px;" class="ui-corner-all">
+			    <div data-role="header" class="ui-corner-top">
+				    <h1>ผลการคำนวณ</h1>
+			    </div>
+			    <div data-role="content" class="ui-corner-bottom ui-content">
+				    <h3 class="ui-title">โอกาสเป็นโรคหัวใจห้องบนเต้นระริกใน 10 ปีของท่าน</h3>
+				    <p id="resu1"></p>
+				    <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">รับทราบ</a>    
+			    </div>
+		    </div>
+        </div>
+	</div>
+</div>    
+<div data-role="page" id="afs0">
+    <div data-role="header">
+        <h3>Thai EP club</h3>      
+        <a href="#afs2" data-icon="home" data-inline="true" data-mini="true" data-transition="pop" data-iconpos="notext"></a>
+	</div>
+    <div data-role="content">
+        <table>
+            <tr>
+                <td><img src="../logo/thaiep.jpg"></td>
+                <td>
+                    <h2>ชมรมช่างไฟฟ้าหัวใจแห่งประเทศไทย</h2>
+                    <h5>โปรแกรมนี้ทำขึ้นเพื่อใช้ประเมินความเสี่ยงที่เกี่ยวกับโรคหัวใจห้องบนเต้นระริกหรือ Atrial Fibrillation (AF) โดยแบ่งเป็นสองส่วน ส่วนแรกใช้สำหรับบุคคลทั่วไปที่ยังไม่เป็นโรคโดยแสดงผลการประเมินเป็นความเสี่ยงต่อการเกิดโรคในระยะเวลา 10 ปีข้างหน้า และ ส่วนที่สองเป็นใช้สำหรับผู้ที่เป็นโรคแล้วโดยแสดงผลการประเมินเป็นความเสี่ยงต่อการเกิดโรคสมองขาดเลือดใน 1 ปีข้างหน้าหากไม่ได้รับการรักษาและหากเข้ารับการรักษาอย่างเหมาะสมแล้วความเสี่ยงต่ำกว่าผลการประเมินมาก แบบประเมินนี้สร้างขึ้นจากการติดตามศึกษาหาปัจจัยเสี่ยงต่อการเกิดโรคหัวใจเต้นระริกชื่อว่า Framingham Heart Study AF 10-year risk และ European Society of Cardiology guidelines for the management of AF 2012 และ American College of Cardiology/American Heart Association Task Force on Practice Guidelines and the Heart Rhythm Society guidelines 2014</h5>
+                </td>
+            </tr>
+        </table>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider"><strong>สนับสนุนโดย</strong></li>
+            <li>
+                <a href="http://www.bayer.co.th/th/">
+                <img src="../logo/bayer.jpg">
+                <h2>Bayer Thai</h2>
+                <p></p></a>
+            </li>
+            <li><a href="https://www.biosensewebster.com/WorldWide/">
+                <img src="../logo/biosense.jpg">
+                <h2>Biosense Webster</h2>
+                <p></p></a>
+            </li>
+            <li><a href="https://www.boehringer-ingelheim.com/">
+                <img src="../logo/bi.jpg">
+                <h2>Boehringer Ingelheim</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.bostonscientific.com/en-US/home.html">
+                <img src="../logo/bsc_logo.png">
+                <h2>Boston Scientific</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.daiichisankyo.com/">
+                <img src="../logo/daiichi-sankyo.png">
+                <h2>Daiichi Sankyo</h2>
+                <p></p></a>
+            </li>
+            <li><a href="http://www.medtronic.com/us-en/index.html">
+                <img src="../logo/medtronic.jpg">
+                <h2>Medtronic</h2>
+                <p></p></a>
+            </li> 
+            <li><a href="https://www.pfizer.co.th/2013/">
+                <img src="../logo/pfizer.gif">
+                <h2>Pfizer</h2>
+                <p></p></a>
+            </li>
+            <li><a href="https://www.sjmglobal.com/">
+                <img src="../logo/sjm.png">
+                <h2>St. Jude Medical</h2>
+                <p></p></a>
+            </li>             
+        </ul>
+    </div>
+    <div data-role="footer">
+    </div>
+</div>
+</body>
+</html>
