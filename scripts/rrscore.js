@@ -140,12 +140,12 @@ function KSformular(age, sex, dm, sbp, wc, cr, gfr) {
     //CALC
     if (cr == 0) {
         //Model 1
-        full_score = (0.055834064240262306 * age) + (0.603337986716479 * sex) + (0.023633303263198093 * sbp) + (0.558629350280779 * dm) + (0.01594360399454897 * wc);
-        predicted_risk = 1 - (Math.pow(sur_root, Math.exp(full_score - 7.597881)));
+        full_score = (0.055834064240262306 * age) + (0.603337986716479 * sex) + (0.023633303263198093 * sbp) + (0.558629350280779 * dm) + (0.01594360399454897 * wc) - 10.2735847304812;
+        predicted_risk = 1 / (1 + Math.exp(full_score * -1));
     } else {
         //Model 2
-        full_score = (0.030493473393701852 * age) + (0.36773917741595746 * sex) + (0.02261155858459684 * sbp) + (0.9164352506061963 * dm) + (0.01283251255620263 * wc) - (0.07184741954730657 * gfr);
-        predicted_risk = 1 - (Math.pow(sur_root, Math.exp(full_score + 0.091218)));
+        full_score = (0.030493473393701852 * age) + (0.36773917741595746 * sex) + (0.02261155858459684 * sbp) + (0.9164352506061963 * dm) + (0.01283251255620263 * wc) - (0.07184741954730657 * gfr) - 2.86732946487294;
+        predicted_risk = 1 / (1 + Math.exp(full_score * -1));
     };
     return predicted_risk;
 };
