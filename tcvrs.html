@@ -55,17 +55,17 @@
                 <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" data-mini="true">
                     <legend>เลือกตามข้อมูลที่ท่านมี (เรียงจากแม่นยำน้อยไปหามาก)</legend>
                     <input name="blood_test" id="blood1" type="radio" checked="checked" value="1" onclick="bloodshift()">
-                    <label for="blood_off">รอบเอว</label>
+                    <label for="blood1">รอบเอว</label>
                     <input name="blood_test" id="blood2" type="radio" value="2" onclick="bloodshift()">
-                    <label for="blood_on">รอบเอว+ส่วนสูง</label>
-		    <input name="blood_test" id="blood3" type="radio" checked="checked" value="3" onclick="bloodshift()">
-                    <label for="blood_off">Cholesterol</label>
+                    <label for="blood2">รอบเอว+ส่วนสูง</label>
+		    <input name="blood_test" id="blood3" type="radio" value="3" onclick="bloodshift()">
+                    <label for="blood3">Cholesterol</label>
                     <input name="blood_test" id="blood4" type="radio" value="4" onclick="bloodshift()">
-                    <label for="blood_on">Cholesterol+HDL</label>
-		    <input name="blood_test" id="blood5" type="radio" checked="checked" value="5" onclick="bloodshift()">
-                    <label for="blood_off">LDL</label>
+                    <label for="blood4">Cholesterol+HDL</label>
+		    <input name="blood_test" id="blood5" type="radio" value="5" onclick="bloodshift()">
+                    <label for="blood5">LDL</label>
                     <input name="blood_test" id="blood6" type="radio" value="6" onclick="bloodshift()">
-                    <label for="blood_on">LDL+HDL</label>
+                    <label for="blood6">LDL+HDL</label>
                 </fieldset>
             </li>
             <li data-role="fieldcontain">
@@ -86,7 +86,7 @@
             </li>
             <li data-role="fieldcontain">
                 <label for="bdh">ส่วนสูง</label>
-                <input type="range" name="bdh" id="bdh" value="160" min="130" max="210" title="ซม (cm)" data-highlight="true" />
+                <input type="range" name="bdh" id="bdh" value="160" min="130" max="210" title="ซม (cm)" data-highlight="true" disabled="disabled" />
             </li>
             <li data-role="list-divider" data-theme="a">หากผลเลือดของท่านมีค่ามากกว่าที่กำหนดให้เลือกค่าสูงสุด</li>
         </ul>
