@@ -144,7 +144,7 @@ function KSformular(age, sex, dm, sbp, wc, cr, gfr) {
         predicted_risk = 1 / (1 + Math.exp(full_score * -1));
     } else {
         //Model 2
-        full_score = (0.030493473393701852 * age) + (0.36773917741595746 * sex) + (0.02261155858459684 * sbp) + (0.9164352506061963 * dm) + (0.01283251255620263 * wc) - (0.07184741954730657 * gfr) - 2.86732946487294;
+        full_score = (0.030493473393701852 * age) + (0.36773917741595746 * sex) + (0.02261155858459684 * sbp) + (0.9164352506061963 * dm) - (0.07184741954730657 * gfr) - 2.86732946487294;
         predicted_risk = 1 / (1 + Math.exp(full_score * -1));
     };
     return predicted_risk;
