@@ -153,13 +153,13 @@ function bloodshift() {
     if ($("#blood1").is(":checked") == true) {
         $('#cr').slider('disable');
         $('#fbs').slider('disable');
-        $("#wc").slider('enable');
+        $('#wc').slider('enable');
         $('.selector').slider('refresh');
-        $("#gfr").val('');
+        $('#gfr').val('');
     } else if ($("#blood2").is(":checked") == true) {
         $('#cr').slider('enable');
         $('#fbs').slider('enable');
-        $("#wc").slider('disable');
+        $('#wc').slider('disable');
         $('.selector').slider('refresh');
         eGFRformular();
     };
