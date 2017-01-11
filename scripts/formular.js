@@ -6,7 +6,7 @@ age in year, smoke 0-1, dm 0-1, sbp in mmHg, sex 0-1, lipid mg/dL, wc in cm, wei
 */
 function ThaiASCVD(lang) {
     //GET VALUE
-    var tc = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);    //age, smoke, dm, sbp, sex, tc, ldl, hdl, whr, wc, height
+    var tc = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);    //age, smoke, dm, sbp, sex, tc-5, ldl-6, hdl-7, whr-8, wc-9, height-10
     if ($("#age").val() != '') { tc[0] = parseInt($("#age").val()) };
     tc[1] = parseInt($("#smoke").val());
     tc[2] = parseInt($("#dm").val());
@@ -19,13 +19,38 @@ function ThaiASCVD(lang) {
     if ($("#bdh").val() != '') { tc[10] = parseInt($("#bdh").val()) };
     if (tc[9] > 0 && tc[10] > 0) { tc[8] = tc[9] / tc[10] };
     //PROTOCOL
-    if ($("#blood_off").is(":checked") == true) {
+    if ($("#blood1").is(":checked") == true) {
         tc[5] = 0;
         tc[6] = 0;
         tc[7] = 0;
-    } else if ($("#blood_on").is(":checked") == true) {
-        tc[9] = 0;
         tc[8] = 0;
+        tc[10] = 0;
+    } else if ($("#blood2").is(":checked") == true) {
+        tc[5] = 0;
+        tc[6] = 0;
+        tc[7] = 0;
+    } else if ($("#blood3").is(":checked") == true) {
+        tc[6] = 0;
+        tc[7] = 0;
+        tc[8] = 0;
+        tc[9] = 0;
+        tc[10] = 0;
+    } else if ($("#blood4").is(":checked") == true) {
+        tc[6] = 0;
+        tc[8] = 0;
+        tc[9] = 0;
+        tc[10] = 0;
+    } else if ($("#blood5").is(":checked") == true) {
+        tc[5] = 0;
+        tc[7] = 0;
+        tc[8] = 0;
+        tc[9] = 0;
+        tc[10] = 0;
+    } else if ($("#blood6").is(":checked") == true) {
+        tc[5] = 0;
+        tc[8] = 0;
+        tc[9] = 0;
+        tc[10] = 0;
     };
     //FORMULAR
     var sum_risk = new Array();
@@ -160,17 +185,49 @@ function TASCVDformular(age, smoke, dm, sbp, sex, tc, ldl, hdl, whr, wc) {
     return risk;
 };
 function bloodshift() {
-    if ($("#blood_off").is(":checked") == true) {
-        //alert("NO BLOOD");
+    if ($("#blood1").is(":checked") == true) {
+        //alert("WC");
+        $('#tc').slider('disable');
+        $('#ldl').slider('disable');
+        $('#hdl').slider('disable');
+        $('#wc').slider('enable');
+        $('#bdh').slider('disable');
+        $('.selector').slider('refresh');
+    } else if ($("#blood2").is(":checked") == true) {
+        //alert("WHR");
         $('#tc').slider('disable');
         $('#ldl').slider('disable');
         $('#hdl').slider('disable');
         $('#wc').slider('enable');
         $('#bdh').slider('enable');
         $('.selector').slider('refresh');
-    } else if ($("#blood_on").is(":checked") == true) {
-        //alert("TEST");
+    } else if ($("#blood3").is(":checked") == true) {
+        //alert("TC");
         $('#tc').slider('enable');
+        $('#ldl').slider('disable');
+        $('#hdl').slider('disable');
+        $('#wc').slider('disable');
+        $('#bdh').slider('disable');
+        $('.selector').slider('refresh');
+    } else if ($("#blood4").is(":checked") == true) {
+        //alert("TC+HDL");
+        $('#tc').slider('enable');
+        $('#ldl').slider('disable');
+        $('#hdl').slider('enable');
+        $('#wc').slider('disable');
+        $('#bdh').slider('disable');
+        $('.selector').slider('refresh');
+    } else if ($("#blood5").is(":checked") == true) {
+        //alert("LDL");
+        $('#tc').slider('disable');
+        $('#ldl').slider('enable');
+        $('#hdl').slider('disable');
+        $('#wc').slider('disable');
+        $('#bdh').slider('disable');
+        $('.selector').slider('refresh');
+    } else if ($("#blood6").is(":checked") == true) {
+        //alert("LDL+HDL");
+        $('#tc').slider('disable');
         $('#ldl').slider('enable');
         $('#hdl').slider('enable');
         $('#wc').slider('disable');
