@@ -186,7 +186,7 @@ function TASCVDformular(age, smoke, dm, sbp, sex, tc, ldl, hdl, whr, wc) {
 };
 function bloodshift() {
     if ($("#blood1").is(":checked") == true) {
-        //alert("WC");
+        alert("WC");
         $('#tc').slider('disable');
         $('#ldl').slider('disable');
         $('#hdl').slider('disable');
@@ -194,7 +194,7 @@ function bloodshift() {
         $('#bdh').slider('disable');
         $('.selector').slider('refresh');
     } else if ($("#blood2").is(":checked") == true) {
-        //alert("WHR");
+        alert("WHR");
         $('#tc').slider('disable');
         $('#ldl').slider('disable');
         $('#hdl').slider('disable');
@@ -202,7 +202,7 @@ function bloodshift() {
         $('#bdh').slider('enable');
         $('.selector').slider('refresh');
     } else if ($("#blood3").is(":checked") == true) {
-        //alert("TC");
+        alert("TC");
         $('#tc').slider('enable');
         $('#ldl').slider('disable');
         $('#hdl').slider('disable');
@@ -210,7 +210,7 @@ function bloodshift() {
         $('#bdh').slider('disable');
         $('.selector').slider('refresh');
     } else if ($("#blood4").is(":checked") == true) {
-        //alert("TC+HDL");
+        alert("TC+HDL");
         $('#tc').slider('enable');
         $('#ldl').slider('disable');
         $('#hdl').slider('enable');
@@ -218,7 +218,7 @@ function bloodshift() {
         $('#bdh').slider('disable');
         $('.selector').slider('refresh');
     } else if ($("#blood5").is(":checked") == true) {
-        //alert("LDL");
+        alert("LDL");
         $('#tc').slider('disable');
         $('#ldl').slider('enable');
         $('#hdl').slider('disable');
@@ -226,7 +226,7 @@ function bloodshift() {
         $('#bdh').slider('disable');
         $('.selector').slider('refresh');
     } else if ($("#blood6").is(":checked") == true) {
-        //alert("LDL+HDL");
+        alert("LDL+HDL");
         $('#tc').slider('disable');
         $('#ldl').slider('enable');
         $('#hdl').slider('enable');
