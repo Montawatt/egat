@@ -50,14 +50,22 @@
             <li data-role="fieldcontain">
                 <label for="sbp">ความดันโลหิตตัวบน</label>
                 <input type="range" name="sbp" id="sbp" value="120" min="80" max="200" title="mmHg" data-highlight="true" />
-            </li> 
-            <li data-role="list-divider">
+            </li>
+	    <li data-role="list-divider">
                 <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" data-mini="true">
-                    <legend></legend>
-                    <input name="blood_test" id="blood_off" type="radio" checked="checked" value="1" onclick="bloodshift()">
-                    <label for="blood_off">ไม่ใช้ผลเลือด</label>
-                    <input name="blood_test" id="blood_on" type="radio" value="2" onclick="bloodshift()">
-                    <label for="blood_on">ใช้ผลเลือด</label>
+                    <legend>เลือกตามข้อมูลที่ท่านมี (เรียงจากแม่นยำน้อยไปหามาก)</legend>
+                    <input name="blood_test" id="blood1" type="radio" checked="checked" value="1" onclick="bloodshift()">
+                    <label for="blood_off">รอบเอว</label>
+                    <input name="blood_test" id="blood2" type="radio" value="2" onclick="bloodshift()">
+                    <label for="blood_on">รอบเอว+ส่วนสูง</label>
+		    <input name="blood_test" id="blood3" type="radio" checked="checked" value="3" onclick="bloodshift()">
+                    <label for="blood_off">Cholesterol</label>
+                    <input name="blood_test" id="blood4" type="radio" value="4" onclick="bloodshift()">
+                    <label for="blood_on">Cholesterol+HDL</label>
+		    <input name="blood_test" id="blood5" type="radio" checked="checked" value="5" onclick="bloodshift()">
+                    <label for="blood_off">LDL</label>
+                    <input name="blood_test" id="blood6" type="radio" value="6" onclick="bloodshift()">
+                    <label for="blood_on">LDL+HDL</label>
                 </fieldset>
             </li>
             <li data-role="fieldcontain">
