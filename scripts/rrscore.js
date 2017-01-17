@@ -121,10 +121,13 @@ function eGFRformular() {
                 _gfr = 141 * Math.pow((_cr / 0.7), (-1.209)) * Math.pow(0.993, _age) * 1.018;
             };
         } else {
+            alert(_cr);
             if (_cr <= 0.9) {
                 _gfr = 141 * Math.pow((_cr / 0.9), (-0.411)) * Math.pow(0.993, _age);
+                alert("F3 = " + _gfr);
             } else {
                 _gfr = 141 * Math.pow((_cr / 0.9), (-1.209)) * Math.pow(0.993, _age);
+                alert("F4 = " + _gfr);
             };
         };
         $("#gfr").val(_gfr.toFixed(2));
