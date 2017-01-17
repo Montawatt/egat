@@ -116,9 +116,9 @@ function eGFRformular() {
         if (_cr == 0) { return 0 };
         if (_sex == 0) {
             if (_cr <= 0.7) {
-                _gfr = 141 * Math.pow((_cr / 0.7), (-0.329)) * Math.pow(0.993, _age);
+                _gfr = 141 * Math.pow((_cr / 0.7), (-0.329)) * Math.pow(0.993, _age) * 1.018;
             } else {
-                _gfr = 141 * Math.pow((_cr / 0.7), (-1.209)) * Math.pow(0.993, _age);
+                _gfr = 141 * Math.pow((_cr / 0.7), (-1.209)) * Math.pow(0.993, _age) * 1.018;
             };
         } else {
             if (cr <= 0.9) {
@@ -144,7 +144,7 @@ function KSformular(age, sex, dm, sbp, wc, cr, gfr) {
         predicted_risk = 1 / (1 + Math.exp(full_score * -1));
     } else {
         //Model 2
-        full_score = (0.030493473393701852 * age) + (0.36773917741595746 * sex) + (0.02261155858459684 * sbp) + (0.9164352506061963 * dm) - (0.07184741954730657 * gfr) - 2.86732946487294;
+        full_score = (0.032495674460793 * age) + (0.429905904391341 * sex) + (0.0235708216543738 * sbp) + (1.00773417784297 * dm) - (0.0715117655989791 * gfr) - 2.04778647579173;
         predicted_risk = 1 / (1 + Math.exp(full_score * -1));
     };
     return predicted_risk;
