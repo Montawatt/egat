@@ -15,7 +15,7 @@ function ThaiASCVD(lang) {
     if ($("#tc").val() != '') { tc[5] = parseInt($("#tc").val()) };
     if ($("#ldl").val() != '') { tc[6] = parseInt($("#ldl").val()) };
     if ($("#hdl").val() != '') { tc[7] = parseInt($("#hdl").val()) };
-    if ($("#wc").val() != '') { tc[9] = parseInt(parseFloat($("#wc").val()) * 2.5) };
+    if ($("#wc").val() != '') { tc[9] = parseInt(parseFloat($("#wc").val())) };
     if ($("#bdh").val() != '') { tc[10] = parseInt($("#bdh").val()) };
     if (tc[9] > 0 && tc[10] > 0) { tc[8] = tc[9] / tc[10] };
     //PROTOCOL
@@ -74,7 +74,7 @@ function ThaiASCVD(lang) {
             if (tc[2] == 1) { sug = sug + ' รักษาระดับน้ำตาลในเลือดให้อยู่ในเกณฑ์ปกติ' };
             if (tc[3] >= 140) { sug = sug + ' ควบคุมระดับความดันโลหิตให้ดี' };
             if (tc[5] >= 220 || tc[6] >= 190) { sug = sug + ' เข้ารับการรักษาเพื่อลดโคเรสเตอรอลในเลือด' };
-            if ((tc[9] >= 38 && tc[4] == 1) || (tc[9] > 32 && tc[4] == 0)) { sug = sug + ' ลดน้ำหนักให้อยู่ในเกณฑ์ปกติ' };
+            if ((tc[9] >= 95 && tc[4] == 1) || (tc[9] > 80 && tc[4] == 0)) { sug = sug + ' ลดน้ำหนักให้อยู่ในเกณฑ์ปกติ' };
             if (sum_risk[1] < 0.1) {
                 $("#sc5").text("จัดอยู่ในกลุ่มเสี่ยงน้อย");
                 $("#sc4").text("เพื่อป้องกันการเกิดโรคหลอดเลือดในอนาคต ควรออกกำลังกายอย่างสม่ำเสมอ รับประทานผักผลไม้เป็นประจำ" + sug + " และตรวจสุขภาพประจำปี");
@@ -105,7 +105,7 @@ function ThaiASCVD(lang) {
             if (tc[2] == 1) { sug = sug + ', keep blood sugar level within normal range' };
             if (tc[3] >= 140) { sug = sug + ', achieve goal of blood pressure controlling' };
             if (tc[5] >= 220 || tc[6] >= 190) { sug = sug + ', intensify cholesterol-lowering therapy' };
-            if ((tc[9] >= 38 && tc[4] == 1) || (tc[9] > 32 && tc[4] == 0)) { sug = sug + ', body weight lowering' };
+            if ((tc[9] >= 95 && tc[4] == 1) || (tc[9] > 80 && tc[4] == 0)) { sug = sug + ', body weight lowering' };
             if (sum_risk[1] < 0.1) {
                 $("#sc5").text("classified as low risk");
                 $("#sc4").text("It is reasonable to prevent atherosclerotic cardiovascular disease in the future by regular execise, high fiber dietary" + sug + " and annual health checkup.");
