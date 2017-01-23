@@ -149,7 +149,7 @@ function TASCVDformular(age, smoke, dm, sbp, sex, tc, ldl, hdl, whr, wc) {
                 compare_score = (0.08305 * age) + (0.24893 * sex) + (0.02164 * compare_sbp) + (0.00243 * 130) + ((-0.01965) * compare_hdl);
                 compare_risk = 1 - (Math.pow(sur_root, Math.exp(compare_score - 5.9826)));
             } else {
-                full_score = (0.08169 * age) + (0.35156 * sex) + (0.02084 * sbp) + (0.65052 * dm) + (0.02094 * ldl) + (0.45639 * smoke);
+                full_score = (0.08169 * age) + (0.35156 * sex) + (0.02084 * sbp) + (0.65052 * dm) + (0.002094 * ldl) + (0.45639 * smoke);
                 predicted_risk = 1 - (Math.pow(sur_root, Math.exp(full_score - 6.99911)));
                 compare_score = (0.08169 * age) + (0.35156 * sex) + (0.02084 * compare_sbp) + (0.02094 * 130);
                 compare_risk = 1 - (Math.pow(sur_root, Math.exp(compare_score - 6.99911)));
